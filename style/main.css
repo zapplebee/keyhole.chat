@@ -73,16 +73,18 @@ button {
 
 [type=range] {
   -webkit-appearance: none;
-  width: 100vw;
+  width: 50vmax;
   position: absolute;
-  top: 0vh;
+  top: 50vh;
   left: 0;
-  opacity: .5; }
+  opacity: .5;
+  transform-origin: top left;
+  transform: rotate(90deg) translateY(-5vmax); }
   [type=range]:focus {
     outline: none; }
   [type=range]::-webkit-slider-runnable-track {
-    width: 100vw;
-    height: 5vw;
+    width: 50vmax;
+    height: 5vmax;
     cursor: pointer;
     transition: all .2s ease;
     box-shadow: 0 0 0 transparent, 0 0 0 rgba(13, 13, 13, 0);
@@ -92,18 +94,18 @@ button {
   [type=range]::-webkit-slider-thumb {
     box-shadow: 0 0 0 transparent, 0 0 0 rgba(13, 13, 13, 0);
     border: 0 solid transparent;
-    height: 5vw;
-    width: 5vw;
+    height: 5vmax;
+    width: 5vmax;
     border-radius: 0px;
     background: black;
     cursor: pointer;
     -webkit-appearance: none;
-    margin-top: 0vw; }
+    margin-top: 0vmax; }
   [type=range]:focus::-webkit-slider-runnable-track {
     background: white; }
   [type=range]::-moz-range-track {
-    width: 100vw;
-    height: 5vw;
+    width: 50vmax;
+    height: 5vmax;
     cursor: pointer;
     transition: all .2s ease;
     box-shadow: 0 0 0 transparent, 0 0 0 rgba(13, 13, 13, 0);
@@ -113,19 +115,19 @@ button {
   [type=range]::-moz-range-thumb {
     box-shadow: 0 0 0 transparent, 0 0 0 rgba(13, 13, 13, 0);
     border: 0 solid transparent;
-    height: 5vw;
-    width: 5vw;
+    height: 5vmax;
+    width: 5vmax;
     border-radius: 0px;
     background: black;
     cursor: pointer; }
   [type=range]::-ms-track {
-    width: 100vw;
-    height: 5vw;
+    width: 50vmax;
+    height: 5vmax;
     cursor: pointer;
     transition: all .2s ease;
     background: transparent;
     border-color: transparent;
-    border-width: 5vw 0;
+    border-width: 5vmax 0;
     color: transparent; }
   [type=range]::-ms-fill-lower {
     box-shadow: 0 0 0 transparent, 0 0 0 rgba(13, 13, 13, 0);
@@ -140,8 +142,8 @@ button {
   [type=range]::-ms-thumb {
     box-shadow: 0 0 0 transparent, 0 0 0 rgba(13, 13, 13, 0);
     border: 0 solid transparent;
-    height: 5vw;
-    width: 5vw;
+    height: 5vmax;
+    width: 5vmax;
     border-radius: 0px;
     background: black;
     cursor: pointer; }
@@ -149,3 +151,42 @@ button {
     background: white; }
   [type=range]:focus::-ms-fill-upper {
     background: white; }
+
+@media (orientation: landscape) {
+  [type=range] {
+    -webkit-appearance: none;
+    width: 50vmax;
+    position: absolute;
+    top: 0;
+    left: auto;
+    right: 0;
+    opacity: .5;
+    transform-origin: top left;
+    transform: rotate(90deg) translateY(-5vmax); }
+  ::-webkit-slider-runnable-track {
+    width: 50vmax;
+    height: 5vmax;
+    cursor: pointer;
+    transition: all .2s ease;
+    box-shadow: 0 0 0 transparent, 0 0 0 rgba(13, 13, 13, 0);
+    background: white;
+    border: 0 solid transparent;
+    border-radius: 0; }
+  ::-moz-range-track {
+    width: 50vmax;
+    height: 5vmax;
+    cursor: pointer;
+    transition: all .2s ease;
+    box-shadow: 0 0 0 transparent, 0 0 0 rgba(13, 13, 13, 0);
+    background: white;
+    border: 0 solid transparent;
+    border-radius: 0; }
+  ::-ms-track {
+    width: 50vmax;
+    height: 5vmax;
+    cursor: pointer;
+    transition: all .2s ease;
+    background: transparent;
+    border-color: transparent;
+    border-width: 5vmax 0;
+    color: transparent; } }

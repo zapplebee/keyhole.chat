@@ -38,7 +38,7 @@ canvas {
   left: 0;
 }
 
-#me{
+#me {
   top: 50vh;
   left:0;
   background-color: #2344ff;
@@ -98,16 +98,16 @@ $track-color: white !default;
 $thumb-color: black !default;
 
 $thumb-radius: 0px !default;
-$thumb-height: 5vw !default;
-$thumb-width: 5vw !default;
+$thumb-height: 5vmax !default;
+$thumb-width: 5vmax !default;
 $thumb-shadow-size: 0 !default;
 $thumb-shadow-blur: 0 !default;
 $thumb-shadow-color: transparent !default;
 $thumb-border-width: 0 !default;
 $thumb-border-color: transparent !default;
 
-$track-width: 100vw !default;
-$track-height: 5vw !default;
+$track-width: 50vmax !default;
+$track-height: 5vmax !default;
 $track-shadow-size: 0 !default;
 $track-shadow-blur: 0 !default;
 $track-shadow-color: transparent !default;
@@ -143,10 +143,11 @@ $contrast: 0 !default;
   //margin: $thumb-height / 2 0;
   width: $track-width;
   position:absolute;
-  top: 0vh;
+  top: 50vh;
   left: 0;
   opacity: .5;
-  //transform: rotate(90deg);
+  transform-origin: top left;
+  transform: rotate(90deg) translateY(-$track-height);
 
 
   &:focus {
@@ -217,3 +218,54 @@ $contrast: 0 !default;
     background: lighten($track-color, $contrast);
   }
 }
+
+
+
+
+
+
+
+@media (orientation : landscape) {
+$track-width: 100vmax !default;
+
+[type=range] {
+  -webkit-appearance: none;
+  //margin: $thumb-height / 2 0;
+  width: $track-width;
+  position:absolute;
+  top: 0;
+  left:auto;
+  right: 0;
+  opacity: .5;
+  transform-origin: top left;
+  transform: rotate(90deg) translateY(-$track-height);
+}
+
+  &::-webkit-slider-runnable-track {
+    @include track();
+    @include shadow($track-shadow-size, $track-shadow-blur, $track-shadow-color);
+    background: $track-color;
+    border: $track-border-width solid $track-border-color;
+    border-radius: $track-radius;
+  }
+
+  &::-moz-range-track {
+    @include track();
+    @include shadow($track-shadow-size, $track-shadow-blur, $track-shadow-color);
+    background: $track-color;
+    border: $track-border-width solid $track-border-color;
+    border-radius: $track-radius;
+  }
+
+
+  &::-ms-track {
+    @include track();
+    background: transparent;
+    border-color: transparent;
+    border-width: $thumb-width 0;
+    color: transparent;
+  }
+
+}
+
+
