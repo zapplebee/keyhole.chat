@@ -12,6 +12,7 @@
     "render-css-compact"  : "node-sass raw/main.scss public/main.css --output-style compressed",
     "render-css-dev"  : "node-sass raw/main.scss public/main.css --output-style extended",
     "build-dev" : "npm run render-lodash && npm run render-css-dev  && npm run render-js-dev  && npm run render-html-dev",
+    "rebuild-dev" : "npm run render-css-dev  && npm run render-js-dev  && npm run render-html-dev",
     "build-compact" : "npm run render-lodash && npm run render-css-compact && npm run render-js-compact  && npm run render-html-compact"
   },
   "repository": {
