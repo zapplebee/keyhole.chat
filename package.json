@@ -8,7 +8,7 @@
     "render-html-compact": "pug raw/index.pug -o public/",
     "render-html-dev": "pug raw/index.pug -o public/ -P",
     "render-js-compact" : "uglifyjs raw/main.js -o public/main.js -c",
-    "render-js-dev" : "uglifyjs raw/main.js -o public/main.js --source-map-inline",
+    "render-js-dev" : "cp raw/main.js public/main.js",
     "render-css-compact"  : "node-sass raw/main.scss public/main.css --output-style compressed",
     "render-css-dev"  : "node-sass raw/main.scss public/main.css --output-style extended",
     "build-dev" : "npm run render-lodash && npm run render-css-dev  && npm run render-js-dev  && npm run render-html-dev",
