@@ -13,7 +13,8 @@
     "render-css-dev": "node-sass raw/main.scss public/main.css --output-style extended",
     "build-dev": "npm run render-lodash && npm run render-css-dev  && npm run render-js-dev  && npm run render-html-dev",
     "rebuild-dev": "npm run render-css-dev  && npm run render-js-dev  && npm run render-html-dev",
-    "build-compact": "npm run render-lodash && npm run render-css-compact && npm run render-js-compact  && npm run render-html-compact"
+    "build-compact": "npm run render-lodash && npm run render-css-compact && npm run render-js-compact  && npm run render-html-compact",
+    "app": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -26,10 +27,7 @@
     "copy": "^0.3.0",
     "express": "^4.14.0",
     "socket.io": "^1.7.1",
-    "uuid": "^3.0.1"
-  },
-  "devDependencies": {
-    "pug": "^2.0.0-beta5",
+    "uuid": "^3.0.1",
     "pug-cli": "^1.0.0-alpha6",
     "node-sass": "^4.0.0",
     "lodash-cli": "^4.17.1",
