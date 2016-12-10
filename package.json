@@ -7,13 +7,13 @@
     "render-lodash": "lodash include=throttle -p -o public/lodash.custom.min.js",
     "render-html-compact": "pug raw/index.pug -o public/",
     "render-html-dev": "pug raw/index.pug -o public/ -P",
-    "render-js-compact" : "uglifyjs raw/main.js -o public/main.js -c",
-    "render-js-dev" : "cp raw/main.js public/main.js",
-    "render-css-compact"  : "node-sass raw/main.scss public/main.css --output-style compressed",
-    "render-css-dev"  : "node-sass raw/main.scss public/main.css --output-style extended",
-    "build-dev" : "npm run render-lodash && npm run render-css-dev  && npm run render-js-dev  && npm run render-html-dev",
-    "rebuild-dev" : "npm run render-css-dev  && npm run render-js-dev  && npm run render-html-dev",
-    "build-compact" : "npm run render-lodash && npm run render-css-compact && npm run render-js-compact  && npm run render-html-compact"
+    "render-js-compact": "uglifyjs raw/main.js -o public/main.js -c",
+    "render-js-dev": "node copy-helper.js",
+    "render-css-compact": "node-sass raw/main.scss public/main.css --output-style compressed",
+    "render-css-dev": "node-sass raw/main.scss public/main.css --output-style extended",
+    "build-dev": "npm run render-lodash && npm run render-css-dev  && npm run render-js-dev  && npm run render-html-dev",
+    "rebuild-dev": "npm run render-css-dev  && npm run render-js-dev  && npm run render-html-dev",
+    "build-compact": "npm run render-lodash && npm run render-css-compact && npm run render-js-compact  && npm run render-html-compact"
   },
   "repository": {
     "type": "git",
@@ -23,16 +23,16 @@
   "license": "MIT",
   "dependencies": {
     "angular": "^1.5.8",
+    "copy": "^0.3.0",
     "express": "^4.14.0",
     "socket.io": "^1.7.1",
     "uuid": "^3.0.1"
   },
-  "devDependencies" : {
+  "devDependencies": {
     "pug": "^2.0.0-beta5",
-    "pug-cli" : "^1.0.0-alpha6",
-    "node-sass" : "^4.0.0",
-    "lodash-cli" : "^4.17.1",
-    "uglify-js" : "~2.7.5"
+    "pug-cli": "^1.0.0-alpha6",
+    "node-sass": "^4.0.0",
+    "lodash-cli": "^4.17.1",
+    "uglify-js": "~2.7.5"
   }
-
 }
