@@ -1,3 +1,6 @@
 {
-  "ignore": ["public/*","style/*"]
+  "ignore": ["public/*"],
+  "events": {
+    "restart": "npm run rebuild-dev"
+  }
 }
