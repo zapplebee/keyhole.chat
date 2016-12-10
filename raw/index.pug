@@ -4,9 +4,9 @@ html(lang="en",ng-app="app")
     meta(charset="utf-8")
     meta(name="viewport",content="width=device-width")
     link(href="https://fonts.googleapis.com/css?family=Share+Tech+Mono",rel="stylesheet")
-    style
-        include main.css
+    link(href="/main.css",rel="stylesheet")
     //script(src="/angular.min.js")
+    script(src="/lodash.custom.min.js")
     script(src="/socket.io.min.js")
     title keyhole.chat
   body
@@ -15,5 +15,4 @@ html(lang="en",ng-app="app")
     div#visitor
     button Press [space] to speak
     input#thresh(type="range",min="0",max="255")
-    script
-        include ugly.js
+    script(src="/main.js")

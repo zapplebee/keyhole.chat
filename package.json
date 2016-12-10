@@ -4,14 +4,15 @@
   "description": "A web-chat server using Chrome's Speech Recognition, Speech Synthesis, User Media, and Socket.io",
   "main": "index.js",
   "scripts": {
-    "lodash": "lodash include=throttle -p -o public/lodash.custom.min.js",
-    "renderHTML": "pug raw/index.pug -o public/ -P",
-    "uglify" : "uglifyjs raw/lodash.custom.min.js raw/main.js -o raw/ugly.js",
-    "uglifyMapped" : "uglifyjs raw/lodash.custom.min.js raw/main.js -o raw/ugly.js --source-map-inline",
-    "scss"  : "node-sass raw/main.scss raw/main.css --output-style compressed",
-    "scssExtended"  : "node-sass raw/main.scss raw/main.css --output-style extended",
-    "buildDev" : "npm run uglifyMapped && npm run scssExtended && npm run renderHTML",
-    "build" : "npm run uglify && npm run scss && npm run renderHTML"
+    "render-lodash": "lodash include=throttle -p -o public/lodash.custom.min.js",
+    "render-html-compact": "pug raw/index.pug -o public/",
+    "render-html-dev": "pug raw/index.pug -o public/ -p",
+    "render-js-compact" : "uglifyjs raw/main.js -o public/main.js -c",
+    "render-js-dev" : "uglifyjs raw/main.js -o public/main.js --source-map-inline",
+    "render-css-compact"  : "node-sass raw/main.scss public/main.css --output-style compressed",
+    "render-css-dev"  : "node-sass raw/main.scss public/main.css --output-style extended",
+    "build-dev" : "npm run render-lodash && npm run render-css-dev  && npm run render-js-dev  && npm run render-html-dev",
+    "build-compact" : "npm run render-lodash && npm run render-css-compact && npm run render-js-compact  && npm run render-html-compact"
   },
   "repository": {
     "type": "git",
