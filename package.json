@@ -15,7 +15,6 @@
   "dependencies": {
     "angular": "^1.5.8",
     "express": "^4.14.0",
-    "lodash": "^4.17.2",
     "node-sass-middleware": "^0.9.8",
     "pug": "^2.0.0-beta5",
     "socket.io": "^1.7.1",

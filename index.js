@@ -19,7 +19,6 @@ app.get('/', function (req, res) {
 });
 app.use('/script/angular.min.js', express.static(__dirname + '/node_modules/angular/angular.min.js'));
 app.use('/script/socket.io.min.js', express.static(__dirname + '/node_modules/socket.io-client/dist/socket.io.min.js'));
-app.use('/script/lodash.min.js', express.static(__dirname + '/node_modules/lodash/lodash.min.js'));
 app.use('/script', express.static(__dirname + '/public'));
 
 //sass
