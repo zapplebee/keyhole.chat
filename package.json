@@ -1,0 +1,24 @@
+{
+  "name": "keyhole.chat",
+  "version": "1.0.0",
+  "description": "A web-chat server using Chrome's Speech Recognition, Speech Synthesis, User Media, and Socket.io",
+  "main": "index.js",
+  "scripts": {
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zapplebee/keyhole.chat.git"
+  },
+  "author": "Zachary Skalko",
+  "license": "MIT",
+  "dependencies": {
+    "angular": "^1.5.8",
+    "express": "^4.14.0",
+    "lodash": "^4.17.2",
+    "node-sass-middleware": "^0.9.8",
+    "pug": "^2.0.0-beta5",
+    "socket.io": "^1.7.1",
+    "uuid": "^3.0.1"
+  }
+}

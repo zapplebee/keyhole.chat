@@ -1,0 +1,219 @@
+* {
+padding: 0;
+margin: 0;
+font-family: 'Share Tech Mono', monospace;
+overflow:hidden;
+}
+
+body {
+
+}
+
+
+
+canvas {
+  position: fixed;
+  top: 0;
+  image-rendering: pixelated;
+  background-color: #fba000;
+}
+
+#me,#visitor{
+  position:fixed;
+  display:flex;
+  width: 100vw;
+  height: 50vh;
+  background-size: cover;
+  image-rendering: pixelated;
+  background-repeat: no-repeat;
+  background-position:center;
+  align-items: center;
+  justify-content: center;
+  font-size: 10vh;
+}
+
+#me {
+  background-color: #fba000;
+  top: 0;
+  left: 0;
+}
+
+#visitor{
+  top: 50vh;
+  left:0;
+  background-color: #2344ff;
+}
+
+p {
+  color: white;
+  text-align: center;
+  hyphens: auto;
+  width: 100vw;
+  padding: 10vh;
+  text-transform: uppercase;
+}
+
+
+button {
+  display:block;
+  height: 40vmin;
+  width: 40vmin;
+  background-color: #2dd755;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  margin-top: -20vmin;
+  margin-left: -20vmin;
+  border: 0;
+  font-size: 5vmin;
+  padding: 1em;
+  color: white;
+  outline: 0;
+  border-radius: 20vmin;
+  text-transform:uppercase;
+}
+
+
+@media (orientation : landscape) {
+  #me, #visitor{
+    position:fixed;
+    top: 0;
+    width: 50vw;
+    height: 100vh;
+  }
+
+  #visitor {
+    left: 50vw;
+    top: 0;
+  }
+  p {
+    width: 50vw;
+  }
+}
+
+//https://github.com/darlanrod/input-range-scss/blob/master/_inputrange.scss
+
+
+$track-color: white !default;
+$thumb-color: black !default;
+
+$thumb-radius: 0px !default;
+$thumb-height: 5vw !default;
+$thumb-width: 5vw !default;
+$thumb-shadow-size: 0 !default;
+$thumb-shadow-blur: 0 !default;
+$thumb-shadow-color: transparent !default;
+$thumb-border-width: 0 !default;
+$thumb-border-color: transparent !default;
+
+$track-width: 100vw !default;
+$track-height: 5vw !default;
+$track-shadow-size: 0 !default;
+$track-shadow-blur: 0 !default;
+$track-shadow-color: transparent !default;
+$track-border-width: 0 !default;
+$track-border-color: transparent !default;
+
+$track-radius: 0 !default;
+$contrast: 0 !default;
+
+@mixin shadow($shadow-size, $shadow-blur, $shadow-color) {
+  box-shadow: $shadow-size $shadow-size $shadow-blur $shadow-color, 0 0 $shadow-size lighten($shadow-color, 5%);
+}
+
+@mixin track() {
+  width: $track-width;
+  height: $track-height;
+  cursor: pointer;
+  transition: all .2s ease;
+}
+
+@mixin thumb() {
+  @include shadow($thumb-shadow-size, $thumb-shadow-blur, $thumb-shadow-color);
+  border: $thumb-border-width solid $thumb-border-color;
+  height: $thumb-height;
+  width: $thumb-width;
+  border-radius: $thumb-radius;
+  background: $thumb-color;
+  cursor: pointer;
+}
+
+[type=range] {
+  -webkit-appearance: none;
+  //margin: $thumb-height / 2 0;
+  width: $track-width;
+  position:absolute;
+  top: 0vh;
+  left: 0;
+  opacity: .5;
+  //transform: rotate(90deg);
+
+
+  &:focus {
+    outline: none;
+  }
+
+  &::-webkit-slider-runnable-track {
+    @include track();
+    @include shadow($track-shadow-size, $track-shadow-blur, $track-shadow-color);
+    background: $track-color;
+    border: $track-border-width solid $track-border-color;
+    border-radius: $track-radius;
+  }
+
+  &::-webkit-slider-thumb {
+    @include thumb();
+    -webkit-appearance: none;
+    margin-top: ((-$track-border-width * 2 + $track-height) / 2) - ($thumb-height / 2);
+  }
+
+  &:focus::-webkit-slider-runnable-track {
+    background: lighten($track-color, $contrast);
+  }
+
+  &::-moz-range-track {
+    @include track();
+    @include shadow($track-shadow-size, $track-shadow-blur, $track-shadow-color);
+    background: $track-color;
+    border: $track-border-width solid $track-border-color;
+    border-radius: $track-radius;
+  }
+
+  &::-moz-range-thumb {
+    @include thumb();
+  }
+
+  &::-ms-track {
+    @include track();
+    background: transparent;
+    border-color: transparent;
+    border-width: $thumb-width 0;
+    color: transparent;
+  }
+
+  &::-ms-fill-lower {
+    @include shadow($track-shadow-size, $track-shadow-blur, $track-shadow-color);
+    background: darken($track-color, $contrast);
+    border: $track-border-width solid $track-border-color;
+    border-radius: $track-radius * 2;
+  }
+
+  &::-ms-fill-upper {
+    @include shadow($track-shadow-size, $track-shadow-blur, $track-shadow-color);
+    background: $track-color;
+    border: $track-border-width solid $track-border-color;
+    border-radius: $track-radius * 2;
+  }
+
+  &::-ms-thumb {
+    @include thumb();
+  }
+
+  &:focus::-ms-fill-lower {
+    background: $track-color;
+  }
+
+  &:focus::-ms-fill-upper {
+    background: lighten($track-color, $contrast);
+  }
+}
