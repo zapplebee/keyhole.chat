@@ -29,4 +29,3 @@ function start(event) {
 var synth = window.speechSynthesis;
 var visitor = document.querySelector('#visitor');
 var me = document.querySelector('#me');
-
