@@ -14,11 +14,9 @@ function SensorGrid(config) {
   var ctx = cvs.getContext("2d");
 
   function describeSize(width, height) {
-
-    var sW = Math.floor(width * scale);
-    var sH = Math.floor(height * scale)
-    cvs.width = sW;
-    cvs.height = sH;
+    console.log(arguments);
+    cvs.width = Math.floor(width * scale);
+    cvs.height = Math.floor(height * scale)
   }
 
   navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
