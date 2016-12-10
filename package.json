@@ -4,7 +4,14 @@
   "description": "A web-chat server using Chrome's Speech Recognition, Speech Synthesis, User Media, and Socket.io",
   "main": "index.js",
   "scripts": {
-    "test": ""
+    "lodash": "lodash include=throttle -p -o public/lodash.custom.min.js",
+    "renderHTML": "pug raw/index.pug -o public/ -P",
+    "uglify" : "uglifyjs raw/lodash.custom.min.js raw/main.js -o raw/ugly.js",
+    "uglifyMapped" : "uglifyjs raw/lodash.custom.min.js raw/main.js -o raw/ugly.js --source-map-inline",
+    "scss"  : "node-sass raw/main.scss raw/main.css --output-style compressed",
+    "scssExtended"  : "node-sass raw/main.scss raw/main.css --output-style extended",
+    "buildDev" : "npm run uglifyMapped && npm run scssExtended && npm run renderHTML",
+    "build" : "npm run uglify && npm run scss && npm run renderHTML"
   },
   "repository": {
     "type": "git",
@@ -15,9 +22,15 @@
   "dependencies": {
     "angular": "^1.5.8",
     "express": "^4.14.0",
-    "node-sass-middleware": "^0.9.8",
-    "pug": "^2.0.0-beta5",
     "socket.io": "^1.7.1",
     "uuid": "^3.0.1"
+  },
+  "devDependencies" : {
+    "pug": "^2.0.0-beta5",
+    "pug-cli" : "^1.0.0-alpha6",
+    "node-sass" : "^4.0.0",
+    "lodash-cli" : "^4.17.1",
+    "uglify-js" : "~2.7.5"
   }
+
 }
