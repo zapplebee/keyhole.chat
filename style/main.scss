@@ -32,13 +32,13 @@ canvas {
   font-size: 10vh;
 }
 
-#me {
+#visitor {
   background-color: #fba000;
   top: 0;
   left: 0;
 }
 
-#visitor{
+#me{
   top: 50vh;
   left:0;
   background-color: #2344ff;
@@ -82,7 +82,7 @@ button {
     height: 100vh;
   }
 
-  #visitor {
+  #me {
     left: 50vw;
     top: 0;
   }
