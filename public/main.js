@@ -14,15 +14,14 @@ lobby.on('room',function (roomid) {
 
 var doEmitPixels = function(){};
 var m = function(){};
-
-
+var dataURL = "";
 
 function initalizeRoom(){
 
-doEmitPixels = _.throttle(function(){socket.emit('image',state)},250)
+doEmitPixels = _.throttle(function(){socket.emit('image',dataURL)},100)
 
-socket.on('image', function (state) {
-  visitor.style['background-image'] = "url('" + renderCanvas(state) + "')";
+socket.on('image', function (dataURL) {
+  visitor.style['background-image'] = "url('" + dataURL + "')";
 });
 
 
