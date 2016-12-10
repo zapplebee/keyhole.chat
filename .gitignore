@@ -38,3 +38,4 @@ jspm_packages
 
 # Compiled CSS
 style/main.css
+*.css
