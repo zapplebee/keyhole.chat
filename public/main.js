@@ -26,7 +26,7 @@ function initalizeRoom(){
 
 
   doEmitTranscript = function(text){
-    socket.emit('voice',{text:text});
+    socket.emit('voice',text);
     var dialog = document.createElement('p');
     dialog.innerHTML = text;
     var fontsize = text.length > 20 ? 0.5 : 1;
@@ -36,10 +36,10 @@ function initalizeRoom(){
     window.setTimeout(function(){me.removeChild(dialog)},t);
   }
 
-  socket.on('voice', function (data) {
+  socket.on('voice', function (text) {
     var dialog = document.createElement('p');
-    dialog.innerHTML = data.text;
-    var fontsize = data.text.length > 20 ? 0.5 : 1;
+    dialog.innerHTML = text;
+    var fontsize = text.length > 20 ? 0.5 : 1;
     dialog.style['font-size'] = fontsize + "em"; 
 
     var utterance = new SpeechSynthesisUtterance(data.text);
@@ -48,7 +48,7 @@ function initalizeRoom(){
 
     utterance.onstart = function(){
       visitor.appendChild(dialog);
-      var t = Math.max(2000,data.text.length * 100);
+      var t = Math.max(2000,text.length * 100);
       timeout = window.setTimeout(function(){
         timeout = null;
         visitor.removeChild(dialog)
