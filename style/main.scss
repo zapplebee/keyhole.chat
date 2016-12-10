@@ -10,12 +10,8 @@ body {
 }
 
 
-
 canvas {
-  position: fixed;
-  top: 0;
   image-rendering: pixelated;
-  background-color: #fba000;
 }
 
 #me,#visitor{
