@@ -13,7 +13,7 @@ lobby.on('room',function (roomid) {
 
 
 var doEmitPixels = function(){};
-var m = function(){};
+var doEmitTranscript = function(){};
 var dataURL = "";
 
 function initalizeRoom(){
@@ -25,7 +25,7 @@ socket.on('image', function (dataURL) {
 });
 
 
-m = function(text){
+doEmitTranscript = function(text){
   socket.emit('voice',{text:text});
   var dialog = document.createElement('p');
   dialog.innerHTML = text;

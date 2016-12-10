@@ -13,7 +13,7 @@ recognition.onerror = function(event) {
 };
 
 recognition.onresult = function(event) {
-  m(event.results[0][0].transcript);
+  doEmitTranscript(event.results[0][0].transcript);
 };
 
 recognition.onend = function(event){
