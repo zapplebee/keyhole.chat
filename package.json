@@ -6,7 +6,7 @@
   "scripts": {
     "render-lodash": "lodash include=throttle -p -o public/lodash.custom.min.js",
     "render-html-compact": "pug raw/index.pug -o public/",
-    "render-html-dev": "pug raw/index.pug -o public/ -p",
+    "render-html-dev": "pug raw/index.pug -o public/ -P",
     "render-js-compact" : "uglifyjs raw/main.js -o public/main.js -c",
     "render-js-dev" : "uglifyjs raw/main.js -o public/main.js --source-map-inline",
     "render-css-compact"  : "node-sass raw/main.scss public/main.css --output-style compressed",
