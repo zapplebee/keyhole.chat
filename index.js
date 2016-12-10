@@ -12,6 +12,7 @@ server.listen(80);
 app.use('/script/angular.min.js', express.static(__dirname + '/node_modules/angular/angular.min.js'));
 app.use('/socket.io.min.js', express.static(__dirname + '/node_modules/socket.io-client/dist/socket.io.min.js'));
 app.use('/', express.static(__dirname + '/public'));
+app.use('/images', express.static(__dirname + '/images'));
 
 var queue = false;
 
@@ -43,5 +44,11 @@ function createRoom(id){
     socket.on('image',function(pixels){
       socket.broadcast.emit('image',pixels);
     });
+
+    socket.on('disconnect', function() {
+      console.log(socket.id,' disconnected');
+      socket.broadcast.emit('roomempty',true);
+   });
+
   })
 }

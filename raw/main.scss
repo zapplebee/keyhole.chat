@@ -53,23 +53,27 @@ p {
 
 button {
   display:block;
-  height: 40vmin;
-  width: 40vmin;
+  height: 20vmin;
+  width: 20vmin;
   background-color: #2dd755;
   position: fixed;
-  left: 50%;
-  top: 50%;
-  margin-top: -20vmin;
-  margin-left: -20vmin;
+  left: 5vmin;
+  bottom: 5vmin;
   border: 0;
-  font-size: 5vmin;
-  padding: 1em;
   color: white;
   outline: 0;
-  border-radius: 20vmin;
+  border-radius: 10vmin;
   text-transform:uppercase;
+  background-image: url('/images/mic_open.svg');
+  background-size: 16vmin;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
+.held {
+  background-image: url('/images/mic_closed.svg');
+  background-color: #a120b8;
+}
 
 @media (orientation : landscape) {
   #me, #visitor{

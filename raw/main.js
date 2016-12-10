@@ -1,16 +1,22 @@
-var lobby = io.connect('/lobby');
+var lobby;
 var room = false;
 var socket;
+var talkButton = document.querySelector('#talk-button');
 
-lobby.on('room',function (roomid) {
+function initalizeLobby(){
+  lobby = io.connect('/lobby');
+  lobby.on('room',function (roomid) {
   console.log(roomid);
   if(room === false){
     socket = io.connect('/'+roomid);
     initalizeRoom();
   }
   room = roomid;
-});
+  });
 
+}
+
+initalizeLobby();
 
 var doEmitPixels = function(){};
 var doEmitTranscript = function(){};
@@ -24,6 +30,14 @@ function initalizeRoom(){
     visitor.style['background-image'] = "url('" + dataURL + "')";
   });
 
+
+  socket.on('roomempty',function(disconnect){
+    if(disconnect){
+      console.log('user disconnected');
+      room = false;
+      initalizeLobby();
+    }
+  })
 
   doEmitTranscript = function(text){
     socket.emit('voice',text);
@@ -66,6 +80,15 @@ function initalizeRoom(){
   });
 }
 
+
+
+talkButton.addEventListener('mousedown',function(){
+  talkButton.classList.add('held');
+})
+
+talkButton.addEventListener('mouseup',function(){
+  talkButton.classList.remove('held');
+})
 
 
 var recognizing = false;
